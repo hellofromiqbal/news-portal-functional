@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import AppNavbar from './components/AppNavbar';
+import MainPage from './pages/MainPage';
+import useFetchArticles from './hooks/useFetchArticles';
 
 function App() {
+  const { data, handleSearch } = useFetchArticles();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppNavbar handleSearch={handleSearch}/>
+      <MainPage data={data}/>
     </div>
   );
 }
